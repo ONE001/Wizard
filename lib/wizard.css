@@ -1,0 +1,29 @@
+#wizard * {
+    box-sizing: border-box;
+}
+
+#wizard .wizard_steps_panel {
+    height: 50px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#wizard .wizard_steps_panel > div {
+    padding: 10px;
+    color: white;
+    background: #ddd;
+    margin-right: 10px;
+    float: left;
+    height: inherit;
+}
+
+#wizard .wizard_steps_panel > div.active {
+    background: blue;
+}
+
+#wizard .wizard_body {
+    width: 100%;
+    background: #ddd;
+    margin-top: 10px;
+    min-height: 100px;
+}

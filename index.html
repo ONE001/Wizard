@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="lib/wizard.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="lib/wizard.js"></script>
+  </head>
+  <body>
+    <div id="wizard"></div>
+
+    <script type="text/javascript">
+      var wizard = new Wizard({
+          // HTMLElement, which will be replaced by wizard
+          element: document.querySelector("#wizard"),
+          steps_panel: true,
+          steps: [
+              {
+                  title: "first step",
+                  body: "<b>really first step</b>",
+                  init: function(step, section) {
+                      console.info("init");
+                  },
+                  next: function() {
+                      return true;
+                  },
+              },
+              {
+                  // title: "" // without title
+                  // body: "" // without body
+                  // without init callback
+                  // without next callback
+                  // just empty step
+              },
+              {
+                  title: "third step",
+                  body: "<b>actually third</b>",
+                  init: function() {
+                      console.info("init");
+                  },
+                  next: function() {
+                      console.info("next");
+                      console.log(arguments);
+                      return true;
+                  },
+              },
+          ],
+          active: 1, // number of active step
+
+          // callback, which will be executed after all steps
+          // you may place here everething you want, for instance
+          // request to the server
+          finish: function() {
+              console.info("finish");
+          },
+      });
+      // also in every callback method you have an access to the property 'data'
+      // in current context with methods get and set
+      // for instance this.data.get() - get all current data
+      // this.data.get('key')
+      // this.data.set('key', 'value')
+
+      console.log(wizard);
+    </script>
+  </body>
+</html>
