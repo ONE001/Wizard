@@ -14,12 +14,13 @@
           steps_panel: true,
           steps: [
               {
-                  title: "first step",
+                  title: "First step",
                   body: "<b>really first step</b>",
                   init: function(step, section) {
                       console.info("init");
                   },
                   next: function() {
+                      console.info("next");
                       return true;
                   },
               },
@@ -31,14 +32,13 @@
                   // just empty step
               },
               {
-                  title: "third step",
+                  title: "Third step",
                   body: "<b>actually third</b>",
                   init: function() {
                       console.info("init");
                   },
                   next: function() {
                       console.info("next");
-                      console.log(arguments);
                       return true;
                   },
               },
